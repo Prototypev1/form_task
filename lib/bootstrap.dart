@@ -3,8 +3,10 @@ import 'dart:developer';
 
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/widgets.dart';
-import 'package:warranty_saver/di/di.dart';
-import 'package:warranty_saver/core/presentation/navigation/router_configuration.dart';
+import 'package:form_task/core/presentation/navigation/router_configuration.dart';
+import 'package:form_task/di/di.dart';
+import 'package:form_task/generated/codegen_loader.g.dart';
+import 'package:logger_service/logger_service.dart';
 
 Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
   FlutterError.onError = (details) {
@@ -23,7 +25,7 @@ Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
 
       runApp(
         EasyLocalization(
-          // assetLoader: const CodegenLoader(),
+          assetLoader: const CodegenLoader(),
           supportedLocales: const [Locale('en')],
           path: 'assets/localization',
           fallbackLocale: const Locale('sr'),
@@ -36,8 +38,5 @@ Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
 }
 
 void _initLogger() {
-  // Log.tag = '';
-
-  // Uncomment if you want simple logging
-  // Log.printer = null;
+  Log.tag = 'Forms task';
 }

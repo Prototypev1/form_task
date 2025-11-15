@@ -1,6 +1,5 @@
 import 'package:form_task/core/domain/repository/theme_repository.dart';
 import 'package:form_task/core/presentation/navigation/router_configuration.dart';
-import 'package:form_task/feature/main_page_container/domain/cubit/main_page_cubit.dart';
 import 'package:get_it/get_it.dart';
 
 final GetIt getIt = GetIt.instance;
@@ -16,7 +15,7 @@ Future<void> _registerUtils() async {
 }
 
 void _registerCubits() {
-  getIt
+  //getIt
   //..registerLazySingleton<LoadingPageCubit>(() => LoadingPageCubit())
-  .registerLazySingleton<MainPageCubit>(() => MainPageCubit());
+  //.registerLazySingleton<MainPageCubit>(() => MainPageCubit());
 }

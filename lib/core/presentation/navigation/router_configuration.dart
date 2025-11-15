@@ -3,7 +3,6 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:form_task/feature/loading_page/presentation/loading_page.dart';
-import 'package:form_task/feature/main_page_container/presentation/main_page_container.dart';
 import 'package:go_router/go_router.dart';
 
 class RouterConfiguration {
@@ -29,7 +28,7 @@ class RouterConfiguration {
         ),
         ShellRoute(
           navigatorKey: shellNavigatorKey,
-          builder: (context, state, child) => MainPageContainer(child: child),
+          //  builder: (context, state, child) => MainPageContainer(child: child),
           routes: [
             GoRoute(
               path: '/placeholder',

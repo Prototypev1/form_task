@@ -27,3 +27,9 @@ doc/api/
 
 .flutter-plugins
 .flutter-plugins-dependencies
+
+# Files and directories created by pub
+.dart_tool/
+.packages
+build/
+lib/generated/*
