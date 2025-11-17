@@ -1,1 +1,14 @@
-{}
+{
+    "buttons": {
+        "nextStep": "Sledeći korak",
+        "save": "Sačuvaj"
+    },
+    "input_fields": {
+        "activity": "Aktivnost",
+        "label": "Naziv",
+        "description": "Opis",
+        "location": "Lokacija",
+        "dateAndTime": "Datum i vreme",
+        "duration": "Trajanje"
+    }
+}

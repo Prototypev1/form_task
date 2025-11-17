@@ -1,1 +1,14 @@
-{}
+{
+    "buttons": {
+        "nextStep": "Next Step",
+        "save": "Save"
+    },
+    "input_fields": {
+        "activity": "Activity",
+        "label": "Label",
+        "description": "Description",
+        "location": "Location",
+        "dateAndTime": "Date and Time",
+        "duration": "Duration"
+    }
+}

@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
-import 'package:form_task/feature/loading_page/presentation/loading_page.dart';
+import 'package:form_task/feature/form_page/presentation/pages/form_shell.dart';
 import 'package:go_router/go_router.dart';
 
 class RouterConfiguration {
@@ -18,37 +18,13 @@ class RouterConfiguration {
   void init() {
     _goRouter = GoRouter(
       navigatorKey: rootNavigatorKey,
-      initialLocation: '/${LoadingPage.pageName}',
+      initialLocation: '/${FormShell.pageName}',
       debugLogDiagnostics: kDebugMode,
       routes: <RouteBase>[
         GoRoute(
-          path: '/${LoadingPage.pageName}',
-          name: LoadingPage.pageName,
-          pageBuilder: (context, state) => _getPage(key: state.pageKey, child: const LoadingPage()),
-        ),
-        ShellRoute(
-          navigatorKey: shellNavigatorKey,
-          //  builder: (context, state, child) => MainPageContainer(child: child),
-          routes: [
-            GoRoute(
-              path: '/placeholder',
-              name: 'placeholder',
-              pageBuilder: (context, state) => NoTransitionPage(
-                key: state.pageKey,
-                child: const SizedBox.shrink(),
-              ),
-            ),
-            // GoRoute(
-            //   path: '/${HomePage.pageName}',
-            //   name: HomePage.pageName,
-            //   pageBuilder: (context, state) => NoTransitionPage(key: state.pageKey, child: const HomePage()),
-            // ),
-            // GoRoute(
-            //   path: '/${ContactPage.pageName}',
-            //   name: ContactPage.pageName,
-            //   pageBuilder: (context, state) => NoTransitionPage(key: state.pageKey, child: const ContactPage()),
-            // ),
-          ],
+          path: '/${FormShell.pageName}',
+          name: FormShell.pageName,
+          pageBuilder: (context, state) => _getPage(key: state.pageKey, child: const FormShell()),
         ),
       ],
     );

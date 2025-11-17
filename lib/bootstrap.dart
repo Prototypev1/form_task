@@ -26,7 +26,7 @@ Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
       runApp(
         EasyLocalization(
           assetLoader: const CodegenLoader(),
-          supportedLocales: const [Locale('en')],
+          supportedLocales: const [Locale('sr')],
           path: 'assets/localization',
           fallbackLocale: const Locale('sr'),
           child: await builder(),
