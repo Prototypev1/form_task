@@ -12,3 +12,5 @@
  - leaving out only form name/label/naziv - returns 400
  - leaving out activity dropdown emtpy - returns 401 unauthorized
  - leaving out location string - returns 500 server error
+ - leaving everything empty will return 400 too
+ - filling in everything returns saved
