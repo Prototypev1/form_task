@@ -130,62 +130,64 @@ class _FormShellState extends State<FormShell> {
           }
         }
 
-        return Scaffold(
-          //this wouldnt have been done like this, but i guess its fine for testing purposes
-          resizeToAvoidBottomInset: false,
-          //this app bar in my opinion wouldnt be an app bar but a custom widget, but i just realized how much time ive spent on this
-          //to show the complete architecture of what i would be doing in a large-scale projects roughly.
-          appBar: AppBar(
-            elevation: 0,
-            backgroundColor: Colors.transparent,
-            leading: _currentStep == FormStep.stepTwo
-                //these icons and iconbuttons woudl be a custom widget as a svg/png image, but for this case its just added to show the
-                //suffix icons on each field properly.
-                ? IconButton(
-                    icon: const Icon(Icons.arrow_back, color: Colors.black),
-                    onPressed: onBackButtonPressed,
-                  )
-                : null,
-            title: Text(
-              LocaleKeys.input_fields_activity.tr(),
-              style: CustomTextStyles.of(context).medium16.copyWith(color: Colors.black),
+        return SafeArea(
+          child: Scaffold(
+            //this wouldnt have been done like this, but i guess its fine for testing purposes
+            resizeToAvoidBottomInset: false,
+            //this app bar in my opinion wouldnt be an app bar but a custom widget, but i just realized how much time ive spent on this
+            //to show the complete architecture of what i would be doing in a large-scale projects roughly.
+            appBar: AppBar(
+              elevation: 0,
+              backgroundColor: Colors.transparent,
+              leading: _currentStep == FormStep.stepTwo
+                  //these icons and iconbuttons woudl be a custom widget as a svg/png image, but for this case its just added to show the
+                  //suffix icons on each field properly.
+                  ? IconButton(
+                      icon: const Icon(Icons.arrow_back, color: Colors.black),
+                      onPressed: onBackButtonPressed,
+                    )
+                  : null,
+              title: Text(
+                LocaleKeys.input_fields_activity.tr(),
+                style: CustomTextStyles.of(context).medium16.copyWith(color: Colors.black),
+              ),
+              centerTitle: true,
             ),
-            centerTitle: true,
-          ),
-          body: Column(
-            children: [
-              const Divider(height: 1),
-              Expanded(
-                child: PageView(
-                  controller: _pageController,
-                  physics: const NeverScrollableScrollPhysics(),
-                  children: [
-                    FormStepOne(
-                      nameController: _nameController,
-                      descirptionController: _descriptionController,
-                    ),
-                    FormStepTwo(
-                      activityController: _activityController,
-                      locationController: _locationController,
-                      dateController: _dateController,
-                      durationController: _durationController,
-                    ),
-                  ],
+            body: Column(
+              children: [
+                const Divider(height: 1),
+                Expanded(
+                  child: PageView(
+                    controller: _pageController,
+                    physics: const NeverScrollableScrollPhysics(),
+                    children: [
+                      FormStepOne(
+                        nameController: _nameController,
+                        descirptionController: _descriptionController,
+                      ),
+                      FormStepTwo(
+                        activityController: _activityController,
+                        locationController: _locationController,
+                        dateController: _dateController,
+                        durationController: _durationController,
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-              //ideally this would be disabled in step 1 as i would place the guard for that, isLoading bool would be picked up
-              //from the state and present a custom indicator, but as im too lazy to mock everything properly, ill leave it enabled
-              //and based on the fields remaining empty ( thats why its constantly enabled ) - will simulate the api call ( step 2 tho ).
-              Container(
-                padding: const EdgeInsets.all(16),
-                child: CustomButton(
-                  text: _currentStep.buttonText,
-                  isLoading: isLoading,
-                  suffixIcon: _currentStep == FormStep.stepOne ? Icons.arrow_forward : null,
-                  onPressed: () => onMainButtonPressed(),
+                //ideally this would be disabled in step 1 as i would place the guard for that, isLoading bool would be picked up
+                //from the state and present a custom indicator, but as im too lazy to mock everything properly, ill leave it enabled
+                //and based on the fields remaining empty ( thats why its constantly enabled ) - will simulate the api call ( step 2 tho ).
+                Container(
+                  padding: const EdgeInsets.all(16),
+                  child: CustomButton(
+                    text: _currentStep.buttonText,
+                    isLoading: isLoading,
+                    suffixIcon: _currentStep == FormStep.stepOne ? Icons.arrow_forward : null,
+                    onPressed: () => onMainButtonPressed(),
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         );
       },

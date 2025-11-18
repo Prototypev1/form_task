@@ -34,7 +34,7 @@ class CustomFormField extends StatelessWidget {
         Text(labelText, style: CustomTextStyles.of(context).medium14),
         const SizedBox(height: 8),
         SizedBox(
-          height: height ?? MediaQuery.sizeOf(context).height * 0.6,
+          height: height ?? MediaQuery.sizeOf(context).height * 0.55,
           child: Container(
             decoration: BoxDecoration(
               boxShadow: [
