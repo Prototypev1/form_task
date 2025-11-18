@@ -9,7 +9,6 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    //TODO(Marko): Add bloc provider here
     final theme = getIt<ThemeRepository>().buildTheme();
     return GestureDetector(
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),

@@ -4,6 +4,9 @@ import 'package:form_task/config.dart';
 import 'package:form_task/core/domain/repository/local_repository.dart';
 import 'package:logger_service/logger_service.dart';
 
+//this is a basic implementation of the whole repo that would handle methods for interaction with be
+//it was built from a specific project for a skeleton so there are some unnecessary lines here that were used
+//to unwrap double jsons and poor backend logic, so dont mind that.
 class BaseApiRepository {
   const BaseApiRepository(this._dioClient, this._localRepository);
   final Dio _dioClient;

@@ -3,16 +3,15 @@ import 'package:intl/intl.dart';
 import 'package:form_task/core/presentation/common/styles/custom_colors.dart';
 import 'package:form_task/core/presentation/common/styles/custom_text_styles.dart';
 
+//this entire thing would have been done way better
 class CustomTimePicker extends StatelessWidget {
   final TextEditingController controller;
   final String labelText;
-  final String? hintText;
 
   const CustomTimePicker({
     super.key,
     required this.controller,
     required this.labelText,
-    this.hintText,
   });
 
   Future<void> _selectDateAndTime(BuildContext context) async {
@@ -64,6 +63,7 @@ class CustomTimePicker extends StatelessWidget {
       pickedTime.minute,
     );
 
+    //move this to a helper
     controller.text = DateFormat('dd.MM.yyyy HH:mm').format(finalDateTime);
   }
 
@@ -103,7 +103,6 @@ class CustomTimePicker extends StatelessWidget {
             style: CustomTextStyles.of(context).medium14,
             cursorColor: borderColor,
             decoration: InputDecoration(
-              hintText: hintText,
               hintStyle: theme.inputDecorationTheme.hintStyle,
               filled: true,
               fillColor: Colors.white,
